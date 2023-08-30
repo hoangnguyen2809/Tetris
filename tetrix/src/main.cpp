@@ -24,13 +24,21 @@ int main()
     {
         game.handleInput();
        
+        static float time = 1;
 
         double currentTime = GetTime();
-        if (currentTime - lastBlockMoveTime >= 1) // Check if 0.2 seconds have passed
+        if (currentTime - lastBlockMoveTime >= time) // Check if 0.2 seconds have passed
         {
             game.moveBlockDown();
             lastBlockMoveTime = currentTime; // Update the last move time
         }
+
+        if (game.score >= game.level * 500)
+        {
+            time -= 0.1; // Decrease the time interval by 0.2 seconds
+            game.level++;
+        }
+
         BeginDrawing();
         ClearBackground(darkGrey);
 
@@ -51,7 +59,15 @@ int main()
         DrawRectangleRec(nextRectangle, BLACK);
         DrawRectangleLines(nextRectangle.x, nextRectangle.y, nextRectangle.width, nextRectangle.height, darkGrey);
         
-       
+        DrawTextEx(font, "Level", { 360, 420 }, 28, 3, white);
+
+        char levelText[10];
+        sprintf_s(levelText, "%d", game.level);
+        Vector2 levelTextSize = MeasureTextEx(font, levelText, 28, 3);
+
+        DrawTextEx(font, levelText, { 322 + (170 - levelTextSize.x) / 2, 466 }, 28, 3, white);
+
+
         game.grid.gridPrint();
         game.Draw();
 

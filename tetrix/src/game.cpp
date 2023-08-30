@@ -9,6 +9,7 @@ Game::Game()
 	nextBlock = randomBlockGen();
 	gameOver = false;
 	score = 0;
+	level = 1;
 }
 
 Block Game::randomBlockGen()
@@ -21,7 +22,20 @@ Block Game::randomBlockGen()
 void Game::Draw()
 {
 	grid.gridDraw();
-	currentBlock.blockDraw();
+	currentBlock.blockDraw(1,1);
+	switch (nextBlock.id)
+	{
+	default:
+		nextBlock.blockDraw(260, 262);
+		break;
+	case 3:
+		nextBlock.blockDraw(247, 275);
+		break;
+	case 4: 
+		nextBlock.blockDraw(250, 262);
+		break;
+	}
+	
 }
 
 void Game::handleInput()
@@ -184,6 +198,7 @@ void Game::gameReset()
 {
 	grid.gridInitialize();
 	score = 0;
+	level = 1;
 }
 
 void Game::lockBlock()

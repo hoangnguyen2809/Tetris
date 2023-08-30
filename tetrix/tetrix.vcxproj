@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\blocks.cpp" />
+    <ClCompile Include="src\colors.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\grid.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -136,6 +137,7 @@
     <ClInclude Include="src\blocks.h" />
     <ClInclude Include="src\game.h" />
     <ClInclude Include="src\grid.h" />
+    <ClInclude Include="src\colors.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

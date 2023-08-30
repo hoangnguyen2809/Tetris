@@ -32,6 +32,7 @@ void Grid::gridDraw()
             else
             {
                 // Draw an outline for an empty cell
+                int cellValue = cells[row][column];
                 DrawRectangle(column * cellSize + 1, row * cellSize + 1, cellSize - 1, cellSize - 1, white);
             }
         }

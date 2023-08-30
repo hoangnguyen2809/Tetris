@@ -17,6 +17,7 @@ public:
 	Block randomBlockGen();
 	Grid grid;
 	int score;
+	int level;
 
 	bool gameOver;
 	void Draw();

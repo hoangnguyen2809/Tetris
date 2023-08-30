@@ -14,12 +14,12 @@ Block::Block()
 	columnOffset = 0;
 }
 
-void Block::blockDraw()
+void Block::blockDraw(int offSetX, int offsetY)
 {
 	vector<Position> currentPos = cells[rotationState];
 	for (Position item : currentPos)
 	{
-		DrawRectangle((item.column+columnOffset)   * cellSize + 1, (item.row+rowOffset)  * cellSize + 1, cellSize - 1, cellSize - 1, white);
+		DrawRectangle((item.column+columnOffset)   * cellSize + offSetX, (item.row+rowOffset)  * cellSize + offsetY, cellSize - 1, cellSize - 1, white);
 	}
 }
 
