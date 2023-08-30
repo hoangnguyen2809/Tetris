@@ -7,6 +7,7 @@ Game::Game()
 	blocks = { IBlock(), JBlock(), LBlock(), OBlock(), SBlock(), TBlock(), ZBlock() };
 	currentBlock = randomBlockGen();
 	nextBlock = randomBlockGen();
+	gameOver = false;
 }
 
 Block Game::randomBlockGen()
@@ -25,6 +26,11 @@ void Game::Draw()
 void Game::handleInput()
 {
 	int keyPressed = GetKeyPressed();
+	if (gameOver && keyPressed != 0)
+	{
+		gameOver = false;
+		gameReset();
+	}
 	switch (keyPressed)
 	{
 	case KEY_LEFT:
@@ -44,31 +50,42 @@ void Game::handleInput()
 
 void Game::moveBlockLeft()
 {
-	currentBlock.Move(0, -1);
-	if (isBlockOutside())
+	if (!gameOver)
 	{
-		currentBlock.Move(0, 1);
+		currentBlock.Move(0, -1);
+		if (isBlockOutside() || fit() == false)
+		{
+			currentBlock.Move(0, 1);
+		}
 	}
 }
 
 void Game::moveBlockRight()
 {
-	currentBlock.Move(0, 1);
-	if (isBlockOutside())
+	if (!gameOver)
 	{
-		currentBlock.Move(0, -1);
+		currentBlock.Move(0, 1);
+		if (isBlockOutside() || fit() == false)
+		{
+			currentBlock.Move(0, -1);
+		}
 	}
-}
+	}
+	
 
 void Game::moveBlockDown()
 {
-	currentBlock.Move(1, 0);
-	if (isBlockOutside())
+	if (!gameOver)
 	{
-		currentBlock.Move(-1, 0);
+		currentBlock.Move(1, 0);
+		if (isBlockOutside() || fit() == false)
+		{
+			currentBlock.Move(-1, 0);
+			lockBlock();
+		}
 	}
+	
 }
-
 
 
 bool Game::isBlockOutside()
@@ -113,24 +130,40 @@ void Game::blockFix()
 			
 		}
 	}
-
 }
-
-
 
 void Game::RotateBlock()
 {
-	currentBlock.Rotate();
-	if (isBlockOutside() && isBlockBottom())
+	if (!gameOver)
 	{
-		currentBlock.undoRotation();
+		currentBlock.Rotate();
+		if (isBlockOutside() && isBlockBottom() || fit() == false)
+		{
+			currentBlock.undoRotation();
+		}
+		else
+			blockFix();
 	}
-	else
-		blockFix();
-	
 }
 
-void Game::LockBlock()
+bool Game::fit()
+{
+	vector<Position> tiles = currentBlock.getCellPositions();
+	for (Position item : tiles)
+	{
+		if (grid.emptyCell(item.row, item.column) == false)
+			return false;
+	}
+	return true;
+}
+
+
+void Game::gameReset()
+{
+	grid.gridInitialize();
+}
+
+void Game::lockBlock()
 {
 	vector<Position> tiles = currentBlock.getCellPositions();
 	for (Position item : tiles)
@@ -138,5 +171,10 @@ void Game::LockBlock()
 		grid.cells[item.row][item.column] = currentBlock.id;
 	}
 	currentBlock = nextBlock;
+	if (fit() == false)
+	{
+		gameOver = true;
+	}
 	nextBlock = randomBlockGen();
+	grid.clearFullRows();
 }

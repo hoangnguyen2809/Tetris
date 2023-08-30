@@ -23,14 +23,15 @@ int main()
         game.handleInput();
 
         double currentTime = GetTime();
-        if (currentTime - lastBlockMoveTime >= 0.5) // Check if 0.5 seconds have passed
+        if (currentTime - lastBlockMoveTime >= 0.002) // Check if 0.2 seconds have passed
         {
             game.moveBlockDown();
             lastBlockMoveTime = currentTime; // Update the last move time
         }
-
         BeginDrawing();
         ClearBackground(darkGrey);
+
+        game.grid.gridPrint();
         
         game.Draw();
 

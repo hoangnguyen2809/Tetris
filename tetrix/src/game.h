@@ -8,11 +8,15 @@ private:
 	vector<Block> blocks;
 	Block currentBlock;
 	Block nextBlock;
+
+	void gameReset();
+	void lockBlock();
 public:
 	Game();
 	Block randomBlockGen();
 	Grid grid;
 
+	bool gameOver;
 	void Draw();
 	void handleInput();
 	void moveBlockLeft();
@@ -22,5 +26,5 @@ public:
 	bool isBlockBottom();
 	void blockFix();
 	void RotateBlock();
-	void LockBlock();
+	bool fit();
 };
