@@ -1,46 +1,45 @@
 #include "grid.h"
-#include<iostream>
-
-using namespace std;
 
 Grid::Grid()
 {
-	numCols = 20;
-	numRows = 10;
-	cellSize = 30;
+    for (int row = 0; row < numRows; row++)
+    {
+        for (int column = 0; column < numColumns; column++)
+        {
+            cells[row][column] = 0;
+        }
+    }
 }
 
-void Grid::gridInitialize()
+void Grid::gridDraw()
 {
-	for (int row = 0; row < numRows; row++)
-	{
-		for (int column = 0; column < numCols; column++)
-		{
-			grid[row][column] = 0;
-		}
-	}
+    for (int row = 0; row < numRows; row++)
+    {
+        for (int column = 0; column < numColumns; column++)
+        {
+            if (cells[row][column] == 0)
+            {
+                // Draw a filled rectangle for an occupied cell
+                DrawRectangle(column * cellSize + 1, row * cellSize + 1, cellSize - 1, cellSize - 1, black);
+            }
+            else
+            {
+                // Draw an outline for an empty cell
+                DrawRectangle(column * cellSize + 1, row * cellSize + 1, cellSize - 1, cellSize - 1, white);
+            }
+        }
+    }
 }
 
-void Grid::Print()
-{
-	for (int row = 0; row < numRows; row++)
-	{
-		for (int column = 0; column < numCols; column++)
-		{
-			cout << grid[row][column] << " ";
-		}
-		cout << endl;
-	}
-}
 
-void Grid::Draw()
+void Grid::gridPrint()
 {
-	for (int row = 0; row < numRows; row++)
-	{
-		for (int column = 0; column < numCols; column++)
-		{
-			
-		}
-		
-	}
+    for (int row = 0; row < numRows; row++)
+    {
+        for (int column = 0; column < numColumns; column++)
+        {
+            cout << cells[row][column] << " ";
+        }
+        cout << endl;
+    }
 }

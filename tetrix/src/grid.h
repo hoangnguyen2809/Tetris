@@ -1,22 +1,20 @@
 #pragma once
+#include<raylib.h>
+#include "blocks.h"
+#include<iostream>
 
-class Grid 
+
+class Grid
 {
 private:
-	int numRows;
-	int numCols;
-	int cellSize;
-	int grid[20][10];
+    static const int numRows = 20; // Number of rows
+    static const int numColumns = 10; // Number of columns
 
-public: 
-	//Constructor
-	Grid();
 
-	//Getters
+public:
+    int cells[numRows][numColumns];
+    Grid();
+    void gridDraw();
+    void gridPrint();
 
-	//Setters
-
-	//Functions
-	void gridInitialize();
-	
 };
