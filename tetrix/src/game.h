@@ -11,10 +11,12 @@ private:
 
 	void gameReset();
 	void lockBlock();
+	void updateScore(int rowsCleared, int moveDown);
 public:
 	Game();
 	Block randomBlockGen();
 	Grid grid;
+	int score;
 
 	bool gameOver;
 	void Draw();
@@ -22,6 +24,8 @@ public:
 	void moveBlockLeft();
 	void moveBlockRight();
 	void moveBlockDown();
+	void moveBlockBottom();
+	
 	bool isBlockOutside();
 	bool isBlockBottom();
 	void blockFix();

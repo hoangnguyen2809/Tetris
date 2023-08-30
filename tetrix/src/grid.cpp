@@ -56,7 +56,7 @@ bool Grid::emptyCell(int row, int column)
     return (cells[row][column] == 0);
 }
 
-void Grid::clearFullRows()
+int Grid::clearFullRows()
 {
     int fullRows = 0;
     for (int row = numRows - 1; row >= 0; row--)
@@ -71,6 +71,7 @@ void Grid::clearFullRows()
             moveRowDown(row, fullRows);
         }
     }
+    return fullRows;
 }
 
 

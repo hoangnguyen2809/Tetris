@@ -8,6 +8,7 @@ Game::Game()
 	currentBlock = randomBlockGen();
 	nextBlock = randomBlockGen();
 	gameOver = false;
+	score = 0;
 }
 
 Block Game::randomBlockGen()
@@ -44,6 +45,9 @@ void Game::handleInput()
 		break;
 	case KEY_UP:
 		RotateBlock();
+		break;
+	case KEY_SPACE:
+		moveBlockBottom();
 		break;
 	}
 }
@@ -84,8 +88,26 @@ void Game::moveBlockDown()
 			lockBlock();
 		}
 	}
-	
 }
+
+void Game::moveBlockBottom()
+{
+	if (!gameOver)
+	{
+		while (!isBlockOutside() && fit() == true)
+		{
+			currentBlock.Move(1, 0);
+		}
+		if (isBlockOutside() || fit() == false)
+		{
+			currentBlock.Move(-1, 0);
+			lockBlock();
+		}
+	}
+}
+
+
+
 
 
 bool Game::isBlockOutside()
@@ -161,6 +183,7 @@ bool Game::fit()
 void Game::gameReset()
 {
 	grid.gridInitialize();
+	score = 0;
 }
 
 void Game::lockBlock()
@@ -176,5 +199,26 @@ void Game::lockBlock()
 		gameOver = true;
 	}
 	nextBlock = randomBlockGen();
-	grid.clearFullRows();
+	int rowsCleared = grid.clearFullRows();
+	updateScore(rowsCleared, 0);
+
+}
+
+void Game::updateScore(int rowsCleared, int moveDownPoints)
+{
+	switch (rowsCleared)
+	{
+	case 1:
+		score += 100;
+		break;
+	case 2:
+		score += 300;
+		break;
+	case 3:
+		score += 500;
+		break;
+	default: 
+		break;
+	}
+	score += moveDownPoints;
 }

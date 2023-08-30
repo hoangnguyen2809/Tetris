@@ -25,6 +25,6 @@ public:
     void gridDraw();
     void gridPrint();
     bool emptyCell(int row, int column);
-    void clearFullRows();
+    int clearFullRows();
 
 };

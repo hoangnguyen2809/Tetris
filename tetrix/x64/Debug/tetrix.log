@@ -1,4 +1,8 @@
 ﻿  game.cpp
   main.cpp
+D:\Users\vieth\source\repos\tetrix\tetrix\src\main.cpp(52,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Users\vieth\source\repos\tetrix\tetrix\src\main.cpp(52,75): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Users\vieth\source\repos\tetrix\tetrix\src\main.cpp(52,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Users\vieth\source\repos\tetrix\tetrix\src\main.cpp(52,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Generating Code...
   tetrix.vcxproj -> D:\Users\vieth\source\repos\tetrix\x64\Debug\tetrix.exe
