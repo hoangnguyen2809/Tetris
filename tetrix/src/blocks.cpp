@@ -29,6 +29,36 @@ void Block::Move(int rows, int columns)
 	columnOffset += columns;
 }
 
+void Block::Rotate()
+{
+	rotationState++;
+	if (rotationState == (int)cells.size())
+	{
+		rotationState = 0;
+	}
+}
+
+void Block::undoRotation()
+{
+	rotationState--;
+	if (rotationState == -1)
+	{
+		rotationState = cells.size() - 1;
+	}
+}
+
+vector<Position> Block::getCellPositions()
+{
+	std::vector<Position> tiles = cells[rotationState];
+	std::vector<Position> movedTiles;
+	for (Position item : tiles)
+	{
+		Position newPos = Position(item.row + rowOffset, item.column + columnOffset);
+		movedTiles.push_back(newPos);
+	}
+	return movedTiles;
+}
+
 
 LBlock::LBlock()
 {

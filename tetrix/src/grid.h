@@ -14,6 +14,10 @@ private:
 public:
     int cells[numRows][numColumns];
     Grid();
+
+    bool cellBoundary(int row, int column);
+    bool overmoveRight(int row, int column);
+    bool bottomLock(int row);
     void gridDraw();
     void gridPrint();
 

@@ -43,3 +43,26 @@ void Grid::gridPrint()
         cout << endl;
     }
 }
+
+bool Grid::cellBoundary(int row, int column)
+{
+    if (row >= 0 && row < numRows && column >= 0 && column < numColumns)
+    {
+        return false;
+    }
+    return true;
+}
+
+bool Grid::overmoveRight(int row, int column)
+{
+    if (column < 0)
+    {
+        return false;
+    }
+    return true;
+}
+
+bool Grid::bottomLock(int row)
+{
+    return (row == numRows);
+}

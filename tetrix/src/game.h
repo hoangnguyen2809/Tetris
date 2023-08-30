@@ -14,4 +14,13 @@ public:
 	Grid grid;
 
 	void Draw();
+	void handleInput();
+	void moveBlockLeft();
+	void moveBlockRight();
+	void moveBlockDown();
+	bool isBlockOutside();
+	bool isBlockBottom();
+	void blockFix();
+	void RotateBlock();
+	void LockBlock();
 };

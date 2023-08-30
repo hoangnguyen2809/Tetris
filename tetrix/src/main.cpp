@@ -2,10 +2,7 @@
 #include<iostream>
 #include"game.h"
 
-
 using namespace std;
-
-
 
 int main()
 {
@@ -18,10 +15,20 @@ int main()
     SetTargetFPS(60);
     
     Game game = Game();
-    
+
+    double lastBlockMoveTime = GetTime();
 
     while (!WindowShouldClose())
     {
+        game.handleInput();
+
+        double currentTime = GetTime();
+        if (currentTime - lastBlockMoveTime >= 0.5) // Check if 0.5 seconds have passed
+        {
+            game.moveBlockDown();
+            lastBlockMoveTime = currentTime; // Update the last move time
+        }
+
         BeginDrawing();
         ClearBackground(darkGrey);
         

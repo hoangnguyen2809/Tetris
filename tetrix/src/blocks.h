@@ -32,6 +32,9 @@ public:
 
     void blockDraw();
     void Move(int rows, int columns);
+    void Rotate();
+    void undoRotation();
+    vector<Position> getCellPositions();
 };
 
 
