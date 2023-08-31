@@ -1,5 +1,15 @@
 # Tetris
 
+Tetris is a classic tile-matching puzzle video game. 
+
+## Gameplay
+
+- Tetriminos spawn at the top of the grid and gradually move down.
+- Arrange Tetriminos to fill complete horizontal lines.
+- Cleared lines award points and increase the player's level.
+- With each level, the game's speed increases, adding to the challenge.
+- The game ends when a new Tetrimino can't fit at the top.
+
 ![GIF](./ss.gif)
 
 ## Getting Started
