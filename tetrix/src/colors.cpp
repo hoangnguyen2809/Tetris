@@ -6,7 +6,7 @@ const Color red = { 201, 32,32,255 };
 const Color purple = {90,0,180,255};
 
 
-vector<Color> GetCellColors()
+vector<Color> getCellColorsId()
 {
-    return { black, white, red, purple };
+    return { black, red, purple, white, white, red, purple, white};
 }

@@ -4,9 +4,9 @@
 
 using namespace std;
 
-extern const Color red;
+extern const Color black;
 extern const Color white;
 extern const Color red;
 extern const Color purple;
 
-vector<Color> GetCellColors();
+vector<Color> getCellColorsId();

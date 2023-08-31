@@ -2,6 +2,7 @@
 #include<raylib.h>
 #include "blocks.h"
 #include<iostream>
+#include"colors.h"
 
 
 class Grid
@@ -12,6 +13,7 @@ private:
     bool fullRow(int row);
     void clearRow(int row);
     void moveRowDown(int row, int numRows);
+    vector<Color> colors;
 
 public:
     int cells[numRows][numColumns];

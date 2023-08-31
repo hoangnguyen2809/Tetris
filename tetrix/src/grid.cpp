@@ -4,6 +4,7 @@
 
 Grid::Grid()
 {
+    colors = getCellColorsId();
     gridInitialize();
 }
 
@@ -33,7 +34,7 @@ void Grid::gridDraw()
             {
                 // Draw an outline for an empty cell
                 int cellValue = cells[row][column];
-                DrawRectangle(column * cellSize + 1, row * cellSize + 1, cellSize - 1, cellSize - 1, white);
+                DrawRectangle(column * cellSize + 1, row * cellSize + 1, cellSize - 1, cellSize - 1, colors[cellValue]);
             }
         }
     }

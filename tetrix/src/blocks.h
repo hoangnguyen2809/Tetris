@@ -2,13 +2,11 @@
 #include<raylib.h>
 #include<vector>
 #include<map>
+#include"colors.h"
 
 using namespace std;
 
 const int cellSize = 30;
-
-const Color black = { 0,0,0,255 };
-const Color white = { 200,200,200,255 };
 
 class Position
 {
@@ -24,8 +22,10 @@ private:
 	int rotationState;
     int rowOffset;
     int columnOffset;
+    vector<Color> colors;
 public:
 	int id;
+    int colorId;
     map<int, vector<Position>> cells;
 
     Block();
