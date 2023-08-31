@@ -1,6 +1,16 @@
 # Tetris
 
 
+
+## Getting Started
+
+1. **Prerequisites:** Make sure you have [raylib](https://www.raylib.com/) installed.
+
+2. **Clone the repository:** `git clone git@github.com:hoangnguyen2809/Tetrix.git`
+
+3. **Build and run the game:** 
+
+
 ## Controls
 
 - **Left Arrow:** Move Tetrimino left.
