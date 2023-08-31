@@ -1,6 +1,6 @@
 # Tetris
 
-
+![GIF](./ss.gif)
 
 ## Getting Started
 
