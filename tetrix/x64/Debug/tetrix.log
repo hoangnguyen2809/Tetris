@@ -1,2 +1,7 @@
-﻿  colors.cpp
+﻿  main.cpp
+D:\Users\vieth\source\repos\tetrix\tetrix\src\main.cpp(39,28): warning C4305: '-=': truncation from 'double' to 'float'
+D:\Users\vieth\source\repos\tetrix\tetrix\src\main.cpp(61,100): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Users\vieth\source\repos\tetrix\tetrix\src\main.cpp(61,79): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Users\vieth\source\repos\tetrix\tetrix\src\main.cpp(61,62): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Users\vieth\source\repos\tetrix\tetrix\src\main.cpp(61,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   tetrix.vcxproj -> D:\Users\vieth\source\repos\tetrix\x64\Debug\tetrix.exe
